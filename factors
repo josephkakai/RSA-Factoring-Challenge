@@ -1,29 +1,35 @@
 #!/usr/bin/python3
-"""factorize given set of numbers in a file to product of two small numbers"""
-from sys import argv
 
 
-def factorize(number_to_check):
-    """"find two small numbers that multiply to give a given number"""
-    i = 2
+"""Importing module for getting the argv and exit"""
 
-    if number_to_check < 2:
-        return
-    
-    while number_to_check % i:
-        i += 1
-    print("{:.0f}={:.0f}*{:.0f}".format(number_to_check, number_to_check / i, i))
 
-if len(argv) != 2:
-    exit()
+import sys
+ac = len(sys.argv)
+if(ac != 2):
+    sys.exit(f"Usage: {sys.argv[0]} <file>")
 
-try:
-    with open(argv[1]) as file:
-        line = file.readline()
 
-        while line != "":
-            number_to_check = int(line.split('\n')[0])
-            factorize(number_to_check)
-            line = file.readline()
-except:
-    pass
+"""Finding natural factors of a number"""
+
+
+def factorizer(n):
+    if (n % 2 == 0):
+        print("{}={}*{}".format(n, n//2, 2))
+    else:
+        for i in range(3, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                break
+        print("{}={}*{}".format(n, n//i, i))
+
+"""Opening a test file containing test cases(n)"""
+
+
+def file_open(file):
+    with open(file) as f:
+        for num in f:
+            num = int(num)
+            factorizer(num)
+    f.close()
+
+file_open(sys.argv[1])

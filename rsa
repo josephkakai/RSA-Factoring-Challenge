@@ -1,32 +1,35 @@
 #!/usr/bin/python3
-"""
-Factorize numbers in a file into a product of two prime numbers
-"""
+
+
+"""Importing module for getting the argv and exit"""
+
+
 import sys
+ac = len(sys.argv)
+if(ac != 2):
+    sys.exit(f"Usage: {sys.argv[0]} <file>")
 
 
-def factorize():
-    """
-    A function to search file and factorize the given set of numbers into two prime numbers (format n = p*q)
-    """
-    try:
-        file = sys.argv[1]
-        with open(file) as f:
-            for line_number in f:
-                line_number = int(line_number)
-                if line_number % 2 == 0:
-                        print("{}={}*{}".format(line_number, line_number // 2, 2))
-                        continue
-                i = 3
-                while i < line_number // 2:
-                    if line_number % i == 0:
-                        print("{}={}*{}".format(line_number, line_number // i, i))
-                        break
-                    i = i + 2
-                if i == (line_number // 2) + 1:
-                    print("{}={}*{}".format(line_number, line_number, 1))
-    except (IndexError):
-        pass
+"""Finding natural factors of a number"""
 
 
-factorize()
+def factorizer(n):
+    if (n % 2 == 0):
+        print("{}={}*{}".format(n, n//2, 2))
+    else:
+        for i in range(3, int(n**0.5) + 1, 2):
+            if n % i == 0:
+                break
+        print("{}={}*{}".format(n, n//i, i))
+
+"""Opening a test file containing test cases(n)"""
+
+
+def file_open(file):
+    with open(file) as f:
+        for num in f:
+            num = int(num)
+            factorizer(num)
+    f.close()
+
+file_open(sys.argv[1])
