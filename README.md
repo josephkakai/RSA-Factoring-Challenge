@@ -53,7 +53,7 @@
 
 Read:
 ---------------------- 
-[RSA Factoring Challenge](./https://en.wikipedia.org/wiki/RSA_Factoring_Challenge)
+[RSA Factoring Challenge](./www.en.wikipedia.org/wiki/RSA_Factoring_Challenge)
 
 ------
 [rsa](./rsa)
