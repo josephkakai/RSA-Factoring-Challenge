@@ -30,11 +30,13 @@
 <li> The file will always end with a new line </li>
 * Output format: =p*q 
 
-one factorization per line
-p and q dont have to be prime numbers
-See example
-You can work on the numbers of the file in the order of your choice
-Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
-Time limit: Your program will be killed after 5 seconds if it hasnt finish
-Push all your scripts, source code, etc to your repository
-we will only run your executable factors
+* one factorization per line
+* p and q dont have to be prime numbers
+* See example
+* You can work on the numbers of the file in the order of your choice
+* Your program should run without any dependency: You will not be able to install anything on the machine we will run your program on
+* Time limit: Your program will be killed after 5 seconds if it hasnt finish
+* Push all your scripts, source code, etc to your repository
+* we will only run your executable factors
+-------------------
+[factors](./factors)
